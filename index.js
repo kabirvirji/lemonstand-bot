@@ -24,6 +24,10 @@ app.get('/', function (req, res) {
     for (let i = 0; i < messaging_events.length; i++) {
       let event = req.body.entry[0].messaging[i]
       let sender = event.sender.id
+
+      sendTextMessage(sender, "Hi, I'm a clever bot that can handle user input. You can ask me any questions you \
+                        have about LemonStand! If you'd rather speak to a human, please email support@lemonstand.com.")
+
       if (event.message && event.message.text) {
         let text = event.message.text
         if (text === 'Generic') {
@@ -44,19 +48,6 @@ app.get('/', function (req, res) {
 // Spin up the server
 app.listen(app.get('port'), function() {
     console.log('running on port', app.get('port'))
-})
-
-app.post('/webhook/', function (req, res) {
-    let messaging_events = req.body.entry[0].messaging
-    for (let i = 0; i < messaging_events.length; i++) {
-        let event = req.body.entry[0].messaging[i]
-        let sender = event.sender.id
-        if (event.message && event.message.text) {
-            let text = event.message.text
-            sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
-        }
-    }
-    res.sendStatus(200)
 })
 
 const token = "EAAQJ2jYqGnsBANxCZCOYgfa7EvYrmso03e9pnAH9ZAdsXtbuZCCpyaoEjqo8WhfB3FOeuJ7LkbaicZA7qgeWjhkOHtliVr1M2EKo8JuYTuduZCZCOq9LzP2GjZAqK9xpZAs8yhuVkYxy0BSScs6EZBqweyyVFhafMTytWFZBdrvV5jfwZDZD";
@@ -111,6 +102,15 @@ function sendGenericMessage(sender) {
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://zest.lemonstand.com",
+                        "title": "Try it out!"
+                    }],
+                }, {
+                    "title": "Bones",
+                    "subtitle": "A bare bones LemonStand theme, perfect for developers",
+                    "image_url": "https://lemonstand.com/resources/ls2-production-website/images/themes/bones.jpg?1436548422",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://bones.lemonstand.com",
                         "title": "Try it out!"
                     }],
                 }]
