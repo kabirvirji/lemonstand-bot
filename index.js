@@ -28,7 +28,8 @@ app.get('/', function (req, res) {
 
       while (counter == 1) {
       sendTextMessage(sender, "Hi, I'm a clever bot that can handle user input. You can ask me any questions you \
-                        have about LemonStand! If you'd rather speak to a human, please email support@lemonstand.com.")
+                        have about LemonStand! If you'd rather speak to a human, please email support@lemonstand.com.");
+      counter++;
         }
       if (event.message && event.message.text) {
         let text = event.message.text
