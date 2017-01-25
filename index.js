@@ -87,26 +87,22 @@ function sendGenericMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "Theme One",
-                    "subtitle": "Element #1 of an hscroll",
+                    "title": "Coffree Theme",
+                    "subtitle": "Our most popular subscription theme",
                     "image_url": "https://coffree.lemonstand.com/resources/coffree/img/logo.png?1483671106",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "https://www.messenger.com",
-                        "title": "web url"
-                    }, {
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for first element in a generic bubble",
+                        "url": "https://coffree.lemonstand.com",
+                        "title": "Try it out!"
                     }],
                 }, {
-                    "title": "Theme Two",
-                    "subtitle": "Element #2 of an hscroll",
+                    "title": "Happy Hour",
+                    "subtitle": "A beautiful, responsive LemonStand theme",
                     "image_url": "https://d2qq4423n7kgsb.cloudfront.net/store-happyhour-568de3457ff0c/uploaded/thumbnails/12093467_150980121918941_659763134_n%202_56902ba0776c5_autoxauto-jpg-keep-ratio.jpeg?1452288928",
                     "buttons": [{
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for second element in a generic bubble",
+                        "type": "web_url",
+                        "url": "https://happyhour.lemonstand.com",
+                        "title": "Try it out!"
                     }],
                 }]
             }
