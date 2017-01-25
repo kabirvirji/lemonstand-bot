@@ -104,6 +104,15 @@ function sendGenericMessage(sender) {
                         "url": "https://happyhour.lemonstand.com",
                         "title": "Try it out!"
                     }],
+                }, {
+                    "title": "Zest",
+                    "subtitle": "Our original LemonStand theme",
+                    "image_url": "http://pic.accessify.com/thumbnails/777x423/z/zest.lemonstand.com.png",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://zest.lemonstand.com",
+                        "title": "Try it out!"
+                    }],
                 }]
             }
         }
