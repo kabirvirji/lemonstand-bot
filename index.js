@@ -19,12 +19,27 @@ app.get('/', function (req, res) {
 })
 
 // for Facebook verification
-app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === 'my_voice_is_my_password_verify_me') {
-        res.send(req.query['hub.challenge'])
+  app.post('/webhook/', function (req, res) {
+    let messaging_events = req.body.entry[0].messaging
+    for (let i = 0; i < messaging_events.length; i++) {
+      let event = req.body.entry[0].messaging[i]
+      let sender = event.sender.id
+      if (event.message && event.message.text) {
+        let text = event.message.text
+        if (text === 'Generic') {
+            sendGenericMessage(sender)
+            continue
+        }
+        sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+      }
+      if (event.postback) {
+        let text = JSON.stringify(event.postback)
+        sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+        continue
+      }
     }
-    res.send('Error, wrong token')
-})
+    res.sendStatus(200)
+  })
 
 // Spin up the server
 app.listen(app.get('port'), function() {
