@@ -20,14 +20,16 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
   app.post('/webhook/', function (req, res) {
+    var counter = 1;
     let messaging_events = req.body.entry[0].messaging
     for (let i = 0; i < messaging_events.length; i++) {
       let event = req.body.entry[0].messaging[i]
       let sender = event.sender.id
 
-      //sendTextMessage(sender, "Hi, I'm a clever bot that can handle user input. You can ask me any questions you \
-                        //have about LemonStand! If you'd rather speak to a human, please email support@lemonstand.com.")
-
+      while (counter == 1) {
+      sendTextMessage(sender, "Hi, I'm a clever bot that can handle user input. You can ask me any questions you \
+                        have about LemonStand! If you'd rather speak to a human, please email support@lemonstand.com.")
+        }
       if (event.message && event.message.text) {
         let text = event.message.text
         if (text === 'Generic') {
