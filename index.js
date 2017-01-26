@@ -137,12 +137,5 @@ function sendGenericMessage(sender) {
     })
 }
 
-curl -X POST -H "Content-Type: application/json" -d '{ \
-  "setting_type":"call_to_actions", \
-  "thread_state":"new_thread", \
-  "call_to_actions":[ \
-    { \
-      "payload":"USER_DEFINED_PAYLOAD" \
-    } \
-  ] \
-}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAQJ2jYqGnsBANxCZCOYgfa7EvYrmso03e9pnAH9ZAdsXtbuZCCpyaoEjqo8WhfB3FOeuJ7LkbaicZA7qgeWjhkOHtliVr1M2EKo8JuYTuduZCZCOq9LzP2GjZAqK9xpZAs8yhuVkYxy0BSScs6EZBqweyyVFhafMTytWFZBdrvV5jfwZDZD"
+
+
