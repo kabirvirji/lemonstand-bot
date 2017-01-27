@@ -33,7 +33,7 @@ app.get('/', function (req, res) {
       //   }
       if (event.message && event.message.text) {
         let text = event.message.text
-        if (text === 'Generic') {
+        if (text === 'What themes are available?') {
             sendGenericMessage(sender)
             continue
         }
