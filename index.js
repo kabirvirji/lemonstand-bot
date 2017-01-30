@@ -41,7 +41,7 @@ app.get('/', function (req, res) {
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
-        sendTextMessage(sender, text.payload, token)
+        sendTextMessage(sender, text, token)
         continue
       }
     }
