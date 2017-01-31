@@ -138,18 +138,5 @@ function sendGenericMessage(sender) {
     })
 }
 
-var senderId = message.user  
-getName: function(senderId) {
-    request.get({
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      url: "https://graph.facebook.com/v2.6/" + senderId + "?fields=first_name&access_token=" + token,
-    }, function(err, response, body) {
-      if (err) {
-        return err
-      }
-      var name = JSON.parse(body).first_name
-    });
-  }
-
 
 
