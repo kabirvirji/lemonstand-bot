@@ -79,16 +79,16 @@ function quickReplies(sender, text) {
         json: {
             recipient: {id:sender},
             message: {
-    "text":"Pick a color:",
+    "text":"",
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Red",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+        "title":"Themes",
+        "payload":"What themes are available?"
       },
       {
         "content_type":"text",
-        "title":"Green",
+        "title":"Pricing",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
