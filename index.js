@@ -79,7 +79,7 @@ function quickReplies(sender, text) {
         json: {
             recipient: {id:sender},
             message: {
-    "text":"Ask me a question or pick an option below to get going:",
+    "text":"Ask me a question or pick an option below:",
     "quick_replies":[
       {
         "content_type":"text",
@@ -155,6 +155,7 @@ function sendGenericMessage(sender) {
             }
         }
     }
+    quickReplies(sender)
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token:token},
@@ -170,6 +171,19 @@ function sendGenericMessage(sender) {
             console.log('Error: ', response.body.error)
         }
     })
+}
+
+function greetingText(sender) {
+    request({
+    url: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: {access_token:token},
+    method: 'POST',
+    json: {
+      "setting_type":"greeting",
+      "greeting":{
+        "text":"Lemony fresh e-commerce 🍋"
+      }
+    }
 }
 
 
