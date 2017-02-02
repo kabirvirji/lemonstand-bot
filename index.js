@@ -79,7 +79,7 @@ function quickReplies(sender, text) {
         json: {
             recipient: {id:sender},
             message: {
-    "text":"",
+    "text":"Ask me a question or pick an option below to get going:",
     "quick_replies":[
       {
         "content_type":"text",
@@ -171,6 +171,8 @@ function sendGenericMessage(sender) {
         }
     })
 }
+
+
 
 
 
