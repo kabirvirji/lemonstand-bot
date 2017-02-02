@@ -173,19 +173,6 @@ function sendGenericMessage(sender) {
     })
 }
 
-function greetingText(sender) {
-    request({
-    url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token:token},
-    method: 'POST',
-    json: {
-      "setting_type":"greeting",
-      "greeting":{
-        "text":"Lemony fresh e-commerce 🍋"
-      }
-    }
-}
-
 
 
 
