@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
 
       if (event.message && event.message.text) {
         let text = event.message.text
-        if (text === 'What themes are available?') {
+        if (text === 'Themes') {
             sendGenericMessage(sender)
             continue
         }
@@ -89,6 +89,11 @@ function quickReplies(sender, text) {
       {
         "content_type":"text",
         "title":"Pricing",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      },
+      {
+        "content_type":"text",
+        "title":"Why LemonStand?",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
