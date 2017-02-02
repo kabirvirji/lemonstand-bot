@@ -26,16 +26,6 @@ app.get('/', function (req, res) {
       let event = req.body.entry[0].messaging[i]
       let sender = event.sender.id
 
-      // while (counter == 1) {
-      // sendTextMessage(sender, "Hi, I'm a clever bot that can handle user input. You can ask me any questions you \
-      //                   have about LemonStand! If you'd rather speak to a human, please email support@lemonstand.com.");
-      // counter++;
-      //   }
-      if (counter == 0): {
-        quickReplies(sender);
-        counter++;
-    }
-
       if (event.message && event.message.text) {
         let text = event.message.text
         if (text === 'What themes are available?') {
@@ -43,6 +33,7 @@ app.get('/', function (req, res) {
             continue
         }
         sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+        quickReplies(sender)
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
