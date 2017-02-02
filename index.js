@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
   app.post('/webhook/', function (req, res) {
-    var counter = 1;
+    var counter = 0;
     let messaging_events = req.body.entry[0].messaging
     for (let i = 0; i < messaging_events.length; i++) {
       let event = req.body.entry[0].messaging[i]
@@ -31,7 +31,11 @@ app.get('/', function (req, res) {
       //                   have about LemonStand! If you'd rather speak to a human, please email support@lemonstand.com.");
       // counter++;
       //   }
-      //quickReplies(sender)
+      if (counter == 0): {
+        quickReplies(sender);
+        counter++;
+    }
+
       if (event.message && event.message.text) {
         let text = event.message.text
         if (text === 'What themes are available?') {
