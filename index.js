@@ -79,7 +79,7 @@ function quickReplies(sender, text) {
         json: {
             recipient: {id:sender},
             message: {
-    "text":"What can I help you with today?",
+    "text":"",
     "quick_replies":[
       {
         "content_type":"text",
