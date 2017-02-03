@@ -84,7 +84,7 @@ function sendTextMessage(sender, text) {
     })
 }
 
-function quickReplies(sender, text) {
+function quickReplies(sender) {
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token:token},
