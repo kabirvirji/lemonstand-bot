@@ -22,12 +22,10 @@ app.get('/', function (req, res) {
   app.post('/webhook/', function (req, res) {
     var counter = 0;
     let messaging_events = req.body.entry[0].messaging
-    let event1 = req.body.entry[0].messaging[0]
-    let sender1 = event1.sender.id
-    quickReplies(sender)
     for (let i = 0; i < messaging_events.length; i++) {
       let event = req.body.entry[0].messaging[i]
       let sender = event.sender.id
+
 
       if (event.message && event.message.text) {
         let text = event.message.text
@@ -35,9 +33,8 @@ app.get('/', function (req, res) {
             sendGenericMessage(sender)
             continue
         }
-        //quickReplies(sender)
         sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
-        
+        quickReplies(sender)
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
