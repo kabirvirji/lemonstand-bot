@@ -43,7 +43,7 @@ app.get('/', function (req, res) {
             quickReplies(sender)
             continue
         }
-        quickReplies(sender)
+
         sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
         
       }
@@ -65,6 +65,7 @@ app.listen(app.get('port'), function() {
 const token = "EAAQJ2jYqGnsBANxCZCOYgfa7EvYrmso03e9pnAH9ZAdsXtbuZCCpyaoEjqo8WhfB3FOeuJ7LkbaicZA7qgeWjhkOHtliVr1M2EKo8JuYTuduZCZCOq9LzP2GjZAqK9xpZAs8yhuVkYxy0BSScs6EZBqweyyVFhafMTytWFZBdrvV5jfwZDZD";
 
 function sendTextMessage(sender, text) {
+    quickReplies(sender)
     let messageData = { text:text }
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
