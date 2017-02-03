@@ -43,8 +43,9 @@ app.get('/', function (req, res) {
             quickReplies(sender)
             continue
         }
-        sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
         quickReplies(sender)
+        sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+        
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
