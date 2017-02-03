@@ -33,12 +33,10 @@ app.get('/', function (req, res) {
             continue
         }
         if (text == 'Pricing') {
-            pricing(sender)
             sendTextMessage(sender, "Our plans start at $100/month and include a wide range of features to help excel your online store!")
             continue
         }
         if (text == 'Why LemonStand?') {
-            pricing(sender)
             sendTextMessage(sender, "LemonStand is a refreshing approach to e-commerce. \
                             LemonStand helps web developers, agencies and fast growing brands create beautiful online stores that stand out from the crowd and sell more. \
                             We don't charge payment transaction fees, and we provide amazing customer support. ")
