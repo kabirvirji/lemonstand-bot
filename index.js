@@ -191,55 +191,55 @@ function sendGenericMessage(sender) {
 }
 
 
-function sendListMessage(recipient) {
-    let messageData1 = {
-    "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "list",
-            "elements": [
-                {
-                    "title": "Classic T-Shirt Collection",
-                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-                    "subtitle": "See all our colors",
-                    "default_action": {
-                        "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                    },
-                    "buttons": [
-                        {
-                            "title": "View",
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-                        }
-                    ]
-                }
-                    ],
-                }
-            }
-        }
-    request({
-        url: 'https://graph.facebook.com/me/messages',
-        qs: {access_token:token},
-        method: 'POST',
-        json: {
-            recipient: {id:recipient},
-            message: messageData1,
-        }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    })
-}
+// function sendListMessage(recipient) {
+//     let messageData1 = {
+//     "attachment": {
+//         "type": "template",
+//         "payload": {
+//             "template_type": "list",
+//             "elements": [
+//                 {
+//                     "title": "Classic T-Shirt Collection",
+//                     "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+//                     "subtitle": "See all our colors",
+//                     "default_action": {
+//                         "type": "web_url",
+//                         "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+//                         "messenger_extensions": true,
+//                         "webview_height_ratio": "tall",
+//                         "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+//                     },
+//                     "buttons": [
+//                         {
+//                             "title": "View",
+//                             "type": "web_url",
+//                             "url": "https://peterssendreceiveapp.ngrok.io/collection",
+//                             "messenger_extensions": true,
+//                             "webview_height_ratio": "tall",
+//                             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+//                         }
+//                     ]
+//                 }
+//                     ],
+//                 }
+//             }
+//         }
+//     request({
+//         url: 'https://graph.facebook.com/me/messages',
+//         qs: {access_token:token},
+//         method: 'POST',
+//         json: {
+//             recipient: {id:recipient},
+//             message: messageData1,
+//         }
+//     }, function(error, response, body) {
+//         if (error) {
+//             console.log('Error sending messages: ', error)
+//         } else if (response.body.error) {
+//             console.log('Error: ', response.body.error)
+//         }
+//     })
+// }
 
 
 
