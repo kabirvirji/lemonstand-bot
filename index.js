@@ -25,6 +25,7 @@ app.get('/', function (req, res) {
     for (let i = 0; i < messaging_events.length; i++) {
       let event = req.body.entry[0].messaging[i]
       let sender = event.sender.id
+      let recipient = event.recipient.id
 
       if (event.message && event.message.text) {
         let text = event.message.text
@@ -36,7 +37,7 @@ app.get('/', function (req, res) {
         }
         if (text == 'Pricing') {
             sendTextMessage(sender, "Our plans start at $100/month and include a wide range of features to help excel your online store!")
-            pricing(sender)
+            pricing(recipient)
             //quickReplies(sender)
             continue
         }
@@ -190,7 +191,7 @@ function sendGenericMessage(sender) {
 }
 
 
-function pricing(sender) {
+function pricing(recipient) {
     let messageData = {
         "attachment": {
             "type": "template",
@@ -233,7 +234,7 @@ function pricing(sender) {
         qs: {access_token:token},
         method: 'POST',
         json: {
-            recipient: 283260422089189,
+            recipient: {id:recipient},
             message: messageData,
         }
     }, function(error, response, body) {
