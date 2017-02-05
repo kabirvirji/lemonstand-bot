@@ -193,7 +193,7 @@ function sendGenericMessage(sender) {
 function pricing(sender) {
     let messageData = {
         "attachment": {
-            "type": "template",
+            "type": "list",
             "payload": {
                 "template_type": "generic",
                 "elements": [{
@@ -203,7 +203,7 @@ function pricing(sender) {
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://lemonstand.com/pricing",
-                        "title": "Try it out!"
+                        "title": "Learn more"
                     }],
                 }, {
                     "title": "Growth",
@@ -212,7 +212,7 @@ function pricing(sender) {
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://lemonstand.com/pricing",
-                        "title": "Try it out!"
+                        "title": "Learn more"
                     }],
                 }, {
                     "title": "Premium",
@@ -221,7 +221,7 @@ function pricing(sender) {
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://lemonstand.com/pricing",
-                        "title": "Try it out!"
+                        "title": "Learn more"
                     }],
                 }]
             }
