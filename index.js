@@ -229,7 +229,7 @@ function sendPricingMessage(sender) {
           {
             "type":"web_url",
             "url":"https://lemonstand.com/pricing",
-            "title":"Learn more"
+            "title":"Full plan details"
           }
         ]
       }
