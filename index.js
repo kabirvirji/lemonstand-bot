@@ -29,6 +29,7 @@ app.get('/', function (req, res) {
       if (event.message && event.message.text) {
         let text = event.message.text
         if (text === 'Themes') {
+            sendTextMessage(sender, "Here are some of our popular themes! You can check out https://lemonstand.com/themes for more!")
             sendGenericMessage(sender)
             //quickReplies(sender)
             continue
@@ -175,26 +176,7 @@ function sendGenericMessage(sender) {
         method: 'POST',
         json: {
             recipient: {id:sender},
-            message: {
-    "text":"Ask me a question or pick an option below:",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Themes",
-        "payload":"What themes are available?"
-      },
-      {
-        "content_type":"text",
-        "title":"Pricing",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"Why LemonStand?",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-    ]
-  },
+            message: messageData,
         }
     }, function(error, response, body) {
         if (error) {
