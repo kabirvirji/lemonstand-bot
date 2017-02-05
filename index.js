@@ -30,17 +30,17 @@ app.get('/', function (req, res) {
         let text = event.message.text
         if (text === 'Themes') {
             sendGenericMessage(sender)
-            quickReplies(sender)
+            //quickReplies(sender)
             continue
         }
         if (text == 'Pricing') {
             sendTextMessage(sender, "Our plans start at $100/month and include a wide range of features to help excel your online store!")
-            quickReplies(sender)
+            //quickReplies(sender)
             continue
         }
         if (text == 'Why LemonStand?') {
             sendTextMessage(sender, "LemonStand is a refreshing approach to e-commerce. LemonStand helps web developers, agencies and fast growing brands create beautiful online stores that stand out from the crowd. We don't charge payment transaction fees, and we provide amazing customer support. You have access to all the code for full control of the UI, and there are many beautiful themes to choose from!")
-            quickReplies(sender)
+            //quickReplies(sender)
             continue
         }
 
@@ -66,7 +66,7 @@ app.listen(app.get('port'), function() {
 const token = "EAAQJ2jYqGnsBANxCZCOYgfa7EvYrmso03e9pnAH9ZAdsXtbuZCCpyaoEjqo8WhfB3FOeuJ7LkbaicZA7qgeWjhkOHtliVr1M2EKo8JuYTuduZCZCOq9LzP2GjZAqK9xpZAs8yhuVkYxy0BSScs6EZBqweyyVFhafMTytWFZBdrvV5jfwZDZD";
 
 function sendTextMessage(sender, text) {
-    quickReplies(sender)
+    //quickReplies(sender)
     let messageData = { text:text }
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
