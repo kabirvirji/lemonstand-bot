@@ -212,14 +212,24 @@ function sendListMessage(sender) {
         "text":"Which plan would you like to learn more about?",
         "buttons":[
           {
-            "type":"web_url",
-            "url":"https://petersapparel.parseapp.com",
-            "title":"Show Website"
+            "type":"postback",
+            "title":"Professional",
+            "payload":"Professional"
           },
           {
             "type":"postback",
-            "title":"Start Chatting",
-            "payload":"USER_DEFINED_PAYLOAD"
+            "title":"Growth",
+            "payload":"Growth"
+          },
+          {
+            "type":"postback",
+            "title":"Premium",
+            "payload":"Premium"
+          },
+          {
+            "type":"web_url",
+            "url":"https://lemonstand.com/pricing",
+            "title":"Learn more"
           }
         ]
       }
