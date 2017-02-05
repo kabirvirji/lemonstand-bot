@@ -225,7 +225,7 @@ function sendListMessage(recipient) {
             }
         }
     request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
+        url: 'https://graph.facebook.com/me/messages',
         qs: {access_token:token},
         method: 'POST',
         json: {
