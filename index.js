@@ -51,6 +51,7 @@ app.get('/', function (req, res) {
         let text = JSON.stringify(event.postback)
         var obj = JSON.parse(text)
         sendTextMessage(sender, obj.payload, token)
+        quickReplies(sender)
         continue
       }
     }
