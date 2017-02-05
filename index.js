@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
         }
         if (text === 'Pricing') {
             sendTextMessage(sender, "Our plans start at $99/month and include a wide range of features to help excel your online store!")
-            //sendListMessage(sender)
+            sendPricingMessage(sender)
             //quickReplies(sender)
             continue
         }
@@ -203,7 +203,7 @@ function sendGenericMessage(sender) {
 }
 
 
-function sendListMessage(sender) {
+function sendPricingMessage(sender) {
     let messageData = {
  "attachment":{
       "type":"template",
