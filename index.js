@@ -58,14 +58,15 @@ app.get('/', function (req, res) {
             sendTextMessage(sender, "We reserve the best for the best. Starting at $399/month we provide the best service an e-commerce platform has to offer. This includes everything the Growth plan does, plus dedicated support and higher API limits. Definitely a go to for any medium to large sized business.")
             continue
         }
-        else if (event.postback && event.postback.payload) {
-                sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
-              // Handle a payload from this sender
-            }
+
 
         sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
         
       }
+    if (event.postback && event.postback.payload) {
+            sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
+          // Handle a payload from this sender
+        }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
         var obj = JSON.parse(text)
@@ -213,7 +214,7 @@ function sendPricingMessage(sender) {
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"What do you want to do next?",
+        "text":"Which plan would you like to learn more about?",
         "buttons":[
               {
                 "type":"postback",
