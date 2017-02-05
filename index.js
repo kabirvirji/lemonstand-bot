@@ -175,7 +175,26 @@ function sendGenericMessage(sender) {
         method: 'POST',
         json: {
             recipient: {id:sender},
-            message: messageData,
+            message: {
+    "text":"Ask me a question or pick an option below:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Themes",
+        "payload":"What themes are available?"
+      },
+      {
+        "content_type":"text",
+        "title":"Pricing",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      },
+      {
+        "content_type":"text",
+        "title":"Why LemonStand?",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+    ]
+  },
         }
     }, function(error, response, body) {
         if (error) {
