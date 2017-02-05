@@ -36,14 +36,26 @@ app.get('/', function (req, res) {
             continue
         }
         if (text === 'Pricing') {
-            sendTextMessage(sender, "Our plans start at $100/month and include a wide range of features to help excel your online store!")
-            sendListMessage(sender)
+            sendTextMessage(sender, "Our plans start at $99/month and include a wide range of features to help excel your online store!")
+            //sendListMessage(sender)
             //quickReplies(sender)
             continue
         }
         if (text === 'Why LemonStand?') {
             sendTextMessage(sender, "LemonStand is a refreshing approach to e-commerce. LemonStand helps web developers, agencies and fast growing brands create beautiful online stores that stand out from the crowd. We don't charge payment transaction fees, and we provide amazing customer support. You have access to all the code for full control of the UI, and there are many beautiful themes to choose from!")
             //quickReplies(sender)
+            continue
+        }
+        if (text == 'Professional') {
+            sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
+            continue
+        }
+        if (text === 'Growth') {
+            sendTextMessage(sender, "The Growth plan starts at $199/month and includes everything the professional plan does, plus the ability to sell subscription products and customer group pricing.")
+            continue
+        }
+        if (text === 'Premium') {
+            sendTextMessage(sender, "We reserve the best for the best. Starting at $399/month we provide the best service an e-commerce platform has to offer. This includes everything the Growth plan does, plus dedicated support and higher API limits. Definitely a go to for any medium to large sized business.")
             continue
         }
 
@@ -197,7 +209,7 @@ function sendListMessage(sender) {
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"What do you want to do next?",
+        "text":"Which plan would you like to learn more about?",
         "buttons":[
           {
             "type":"web_url",
