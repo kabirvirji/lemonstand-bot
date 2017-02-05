@@ -58,6 +58,12 @@ app.get('/', function (req, res) {
             sendTextMessage(sender, "We reserve the best for the best. Starting at $399/month we provide the best service an e-commerce platform has to offer. This includes everything the Growth plan does, plus dedicated support and higher API limits. Definitely a go to for any medium to large sized business.")
             continue
         }
+        else if (event.postback && event.postback.payload) {
+              if (event.postback.payload == 'Professional') {
+                sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
+              }
+              // Handle a payload from this sender
+            }
 
         sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
         
@@ -205,51 +211,27 @@ function sendGenericMessage(sender) {
 
 function sendPricingMessage(sender) {
     let messageData = {
- // "attachment":{
- //      "type":"template",
- //      "payload":{
- //        "template_type":"button",
- //        "text":"Which plan would you like to learn more about?",
- //        "buttons":[
- //          {
- //            "type":"postback",
- //            "title":"Professional",
- //            "payload":"Professional"
- //          },
- //          {
- //            "type":"postback",
- //            "title":"Growth",
- //            "payload":"Growth"
- //          },
- //          {
- //            "type":"postback",
- //            "title":"Premium",
- //            "payload":"Premium"
- //          },
- //          {
- //            "type":"web_url",
- //            "url":"https://lemonstand.com/pricing",
- //            "title":"Full plan details"
- //          }
- //        ]
- //      }
- //    }
   "attachment":{
       "type":"template",
       "payload":{
         "template_type":"button",
         "text":"What do you want to do next?",
         "buttons":[
-          {
-            "type":"postback",
-            "title":"Professional",
-            "payload":"Professional"
-          },
-          {
-            "type":"web_url",
-            "url":"https://petersapparel.parseapp.com",
-            "title":"Show Website"
-          }
+              {
+                "type":"postback",
+                "title":"Professional",
+                "payload":"Professional"
+              },
+              {
+                "type":"postback",
+                "title":"Growth",
+                "payload":"Growth"
+              },
+              {
+                "type":"postback",
+                "title":"Premium",
+                "payload":"Premium"
+              }
         ]
       }
     }
