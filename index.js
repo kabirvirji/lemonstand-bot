@@ -232,7 +232,7 @@ function pricing(sender) {
         qs: {access_token:token},
         method: 'POST',
         json: {
-            recipient: {id:sender},
+            recipient: 283260422089189,
             message: messageData,
         }
     }, function(error, response, body) {
