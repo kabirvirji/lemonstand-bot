@@ -36,6 +36,7 @@ app.get('/', function (req, res) {
         }
         if (text == 'Pricing') {
             sendTextMessage(sender, "Our plans start at $100/month and include a wide range of features to help excel your online store!")
+            pricing(sender)
             //quickReplies(sender)
             continue
         }
@@ -52,6 +53,7 @@ app.get('/', function (req, res) {
         let text = JSON.stringify(event.postback)
         var obj = JSON.parse(text)
         sendTextMessage(sender, obj.payload, token)
+        // Get started triggers postback
         quickReplies(sender)
         continue
       }
@@ -187,6 +189,60 @@ function sendGenericMessage(sender) {
     })
 }
 
+
+function pricing(sender) {
+    let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "Professional",
+                    "subtitle": "Full-featured online retail software for serious small businesses",
+                    "image_url": "http://kabirvirji.com/professional.png",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://lemonstand.com/pricing",
+                        "title": "Try it out!"
+                    }],
+                }, {
+                    "title": "Growth",
+                    "subtitle": "For growing retailers with wholesale, subscriptions and more flexibility",
+                    "image_url": "https://d2qq4423n7kgsb.cloudfront.net/store-happyhour-568de3457ff0c/uploaded/thumbnails/12093467_150980121918941_659763134_n%202_56902ba0776c5_autoxauto-jpg-keep-ratio.jpeg?1452288928",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://lemonstand.com/pricing",
+                        "title": "Try it out!"
+                    }],
+                }, {
+                    "title": "Premium",
+                    "subtitle": "For high volume retailers with premium white-glove support",
+                    "image_url": "http://pic.accessify.com/thumbnails/777x423/z/zest.lemonstand.com.png",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://lemonstand.com/pricing",
+                        "title": "Try it out!"
+                    }],
+                }]
+            }
+        }
+    }
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token:token},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+}
 
 
 
