@@ -59,9 +59,7 @@ app.get('/', function (req, res) {
             continue
         }
         else if (event.postback && event.postback.payload) {
-              if (event.postback.payload == 'Professional') {
                 sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
-              }
               // Handle a payload from this sender
             }
 
