@@ -35,13 +35,13 @@ app.get('/', function (req, res) {
             //quickReplies(sender)
             continue
         }
-        if (text == 'Pricing') {
+        if (text === 'Pricing') {
             sendTextMessage(sender, "Our plans start at $100/month and include a wide range of features to help excel your online store!")
-            pricing(recipient)
+            sendListMessage(recipient)
             //quickReplies(sender)
             continue
         }
-        if (text == 'Why LemonStand?') {
+        if (text === 'Why LemonStand?') {
             sendTextMessage(sender, "LemonStand is a refreshing approach to e-commerce. LemonStand helps web developers, agencies and fast growing brands create beautiful online stores that stand out from the crowd. We don't charge payment transaction fees, and we provide amazing customer support. You have access to all the code for full control of the UI, and there are many beautiful themes to choose from!")
             //quickReplies(sender)
             continue
@@ -191,13 +191,12 @@ function sendGenericMessage(sender) {
 }
 
 
-function pricing(recipient) {
+function sendListMessage(recipient) {
     let messageData = {
         "attachment": {
             "type": "template",
             "payload": {
                 "template_type": "list",
-                "top_element_style": "compact",
                 "elements": [{
                     "title": "Professional",
                     "subtitle": "Full-featured online retail software for serious small businesses",
