@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
         }
         if (text === 'Pricing') {
             sendTextMessage(sender, "Our plans start at $100/month and include a wide range of features to help excel your online store!")
-            sendListMessage(recipient)
+            sendListMessage(sender)
             //quickReplies(sender)
             continue
         }
@@ -191,55 +191,44 @@ function sendGenericMessage(sender) {
 }
 
 
-// function sendListMessage(recipient) {
-//     let messageData1 = {
-//     "attachment": {
-//         "type": "template",
-//         "payload": {
-//             "template_type": "list",
-//             "elements": [
-//                 {
-//                     "title": "Classic T-Shirt Collection",
-//                     "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-//                     "subtitle": "See all our colors",
-//                     "default_action": {
-//                         "type": "web_url",
-//                         "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
-//                         "messenger_extensions": true,
-//                         "webview_height_ratio": "tall",
-//                         "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-//                     },
-//                     "buttons": [
-//                         {
-//                             "title": "View",
-//                             "type": "web_url",
-//                             "url": "https://peterssendreceiveapp.ngrok.io/collection",
-//                             "messenger_extensions": true,
-//                             "webview_height_ratio": "tall",
-//                             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-//                         }
-//                     ]
-//                 }
-//                     ],
-//                 }
-//             }
-//         }
-//     request({
-//         url: 'https://graph.facebook.com/me/messages',
-//         qs: {access_token:token},
-//         method: 'POST',
-//         json: {
-//             recipient: {id:recipient},
-//             message: messageData1,
-//         }
-//     }, function(error, response, body) {
-//         if (error) {
-//             console.log('Error sending messages: ', error)
-//         } else if (response.body.error) {
-//             console.log('Error: ', response.body.error)
-//         }
-//     })
-// }
+function sendListMessage(sender) {
+    let messageData = {
+ "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"What do you want to do next?",
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://petersapparel.parseapp.com",
+            "title":"Show Website"
+          },
+          {
+            "type":"postback",
+            "title":"Start Chatting",
+            "payload":"USER_DEFINED_PAYLOAD"
+          }
+        ]
+      }
+    }
+        }
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token:token},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+}
 
 
 
