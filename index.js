@@ -192,49 +192,45 @@ function sendGenericMessage(sender) {
 
 
 function sendListMessage(recipient) {
-    let messageData = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "list",
-                "elements": [{
-                    "title": "Professional",
-                    "subtitle": "Full-featured online retail software for serious small businesses",
-                    "image_url": "http://kabirvirji.com/professional.png",
-                    "buttons": [{
+    let messageData1 = {
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "list",
+            "elements": [
+                {
+                    "title": "Classic T-Shirt Collection",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                    "subtitle": "See all our colors",
+                    "default_action": {
                         "type": "web_url",
-                        "url": "https://lemonstand.com/pricing",
-                        "title": "Learn more"
-                    }],
-                }, {
-                    "title": "Growth",
-                    "subtitle": "For growing retailers with wholesale, subscriptions and more flexibility",
-                    "image_url": "https://d2qq4423n7kgsb.cloudfront.net/store-happyhour-568de3457ff0c/uploaded/thumbnails/12093467_150980121918941_659763134_n%202_56902ba0776c5_autoxauto-jpg-keep-ratio.jpeg?1452288928",
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": "https://lemonstand.com/pricing",
-                        "title": "Learn more"
-                    }],
-                }, {
-                    "title": "Premium",
-                    "subtitle": "For high volume retailers with premium white-glove support",
-                    "image_url": "http://pic.accessify.com/thumbnails/777x423/z/zest.lemonstand.com.png",
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": "https://lemonstand.com/pricing",
-                        "title": "Learn more"
-                    }],
-                }]
+                        "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    },
+                    "buttons": [
+                        {
+                            "title": "View",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/collection",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+                        }
+                    ]
+                }
+                    ],
+                }
             }
         }
-    }
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token:token},
         method: 'POST',
         json: {
             recipient: {id:recipient},
-            message: messageData,
+            message: messageData1,
         }
     }, function(error, response, body) {
         if (error) {
