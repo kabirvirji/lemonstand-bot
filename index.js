@@ -193,9 +193,10 @@ function sendGenericMessage(sender) {
 function pricing(sender) {
     let messageData = {
         "attachment": {
-            "type": "list",
+            "type": "template",
             "payload": {
-                "template_type": "generic",
+                "template_type": "list",
+                "top_element_style": "compact",
                 "elements": [{
                     "title": "Professional",
                     "subtitle": "Full-featured online retail software for serious small businesses",
