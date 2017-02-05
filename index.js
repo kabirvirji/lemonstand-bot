@@ -205,31 +205,50 @@ function sendGenericMessage(sender) {
 
 function sendPricingMessage(sender) {
     let messageData = {
- "attachment":{
+ // "attachment":{
+ //      "type":"template",
+ //      "payload":{
+ //        "template_type":"button",
+ //        "text":"Which plan would you like to learn more about?",
+ //        "buttons":[
+ //          {
+ //            "type":"postback",
+ //            "title":"Professional",
+ //            "payload":"Professional"
+ //          },
+ //          {
+ //            "type":"postback",
+ //            "title":"Growth",
+ //            "payload":"Growth"
+ //          },
+ //          {
+ //            "type":"postback",
+ //            "title":"Premium",
+ //            "payload":"Premium"
+ //          },
+ //          {
+ //            "type":"web_url",
+ //            "url":"https://lemonstand.com/pricing",
+ //            "title":"Full plan details"
+ //          }
+ //        ]
+ //      }
+ //    }
+  "attachment":{
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"Which plan would you like to learn more about?",
+        "text":"What do you want to do next?",
         "buttons":[
           {
-            "type":"postback",
-            "title":"Professional",
-            "payload":"Professional"
-          },
-          {
-            "type":"postback",
-            "title":"Growth",
-            "payload":"Growth"
-          },
-          {
-            "type":"postback",
-            "title":"Premium",
-            "payload":"Premium"
-          },
-          {
             "type":"web_url",
-            "url":"https://lemonstand.com/pricing",
-            "title":"Full plan details"
+            "url":"https://petersapparel.parseapp.com",
+            "title":"Show Website"
+          },
+          {
+            "type":"postback",
+            "title":"Start Chatting",
+            "payload":"USER_DEFINED_PAYLOAD"
           }
         ]
       }
