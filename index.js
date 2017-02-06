@@ -43,7 +43,7 @@ app.get('/', function (req, res) {
         }
         if (text === 'Why LemonStand?') {
             sendTextMessage(sender, "LemonStand is a refreshing approach to e-commerce. LemonStand helps web developers, agencies and fast growing brands create beautiful online stores that stand out from the crowd. We don't charge payment transaction fees, and we provide amazing customer support. You have access to all the code for full control of the UI, and there are many beautiful themes to choose from!")
-            //quickReplies(sender)
+            quickReplies(sender)
             continue
         }
         if (text == 'Professional') {
@@ -77,7 +77,7 @@ app.get('/', function (req, res) {
                 sendTextMessage(sender, "We reserve the best for the best. Starting at $399/month we provide the best service an e-commerce platform has to offer. This includes everything the Growth plan does, plus dedicated support and higher API limits. Definitely a go to for any medium to large sized business.")
             }
         }
-      if (event.postback) {
+      else if (event.postback) {
         let text = JSON.stringify(event.postback)
         var obj = JSON.parse(text)
         //sendTextMessage(sender, obj.payload, token)
