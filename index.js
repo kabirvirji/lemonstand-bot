@@ -76,7 +76,7 @@ app.get('/', function (req, res) {
             if (event.postback.payload === 'Premium') {
                 sendTextMessage(sender, "We reserve the best for the best. Starting at $399/month we provide the best service an e-commerce platform has to offer. This includes everything the Growth plan does, plus dedicated support and higher API limits. Definitely a go to for any medium to large sized business.")
             }
-            if (even.postback.payload === 'Get Started') {
+            if (event.postback.payload === 'Get Started') {
                 sendTextMessage(sender, "Hi, welcome to LemonStand. What can I help you with today?")
                 quickReplies(sender)
             }
