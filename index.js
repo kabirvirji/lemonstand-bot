@@ -29,23 +29,23 @@ app.get('/', function (req, res) {
 
       if (event.message && event.message.text) {
         let text = event.message.text
-        // if (text === 'Themes') {
-        //     sendTextMessage(sender, "Here are some of our popular themes! You can check out https://lemonstand.com/themes for more!")
-        //     sendGenericMessage(sender)
-        //     //quickReplies(sender)
-        //     continue
-        // }
-        // if (text === 'Pricing') {
-        //     sendTextMessage(sender, "Our plans start at $99/month and include a wide range of features to help excel your online store!")
-        //     sendPricingMessage(sender)
-        //     //quickReplies(sender)
-        //     continue
-        // }
-        // if (text === 'Why LemonStand?') {
-        //     sendTextMessage(sender, "LemonStand is a refreshing approach to e-commerce. LemonStand helps web developers, agencies and fast growing brands create beautiful online stores that stand out from the crowd. We don't charge payment transaction fees, and we provide amazing customer support. You have access to all the code for full control of the UI, and there are many beautiful themes to choose from!")
-        //     quickReplies(sender)
-        //     continue
-        // }
+        if (text === 'Themes') {
+            sendTextMessage(sender, "Here are some of our popular themes! You can check out https://lemonstand.com/themes for more!")
+            sendGenericMessage(sender)
+            //quickReplies(sender)
+            continue
+        }
+        if (text === 'Pricing') {
+            sendTextMessage(sender, "Our plans start at $99/month and include a wide range of features to help excel your online store!")
+            sendPricingMessage(sender)
+            //quickReplies(sender)
+            continue
+        }
+        if (text === 'Why LemonStand?') {
+            sendTextMessage(sender, "LemonStand is a refreshing approach to e-commerce. LemonStand helps web developers, agencies and fast growing brands create beautiful online stores that stand out from the crowd. We don't charge payment transaction fees, and we provide amazing customer support. You have access to all the code for full control of the UI, and there are many beautiful themes to choose from!")
+            quickReplies(sender)
+            continue
+        }
         // if (text == 'Professional') {
         //     sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
         //     continue
@@ -84,24 +84,6 @@ app.get('/', function (req, res) {
             if (event.postback.payload === 'Help') {
                 sendTextMessage(sender, "Please email support@lemonstand.com with any questions.")
             }
-
-            if (event.postback.payload === 'Themes') {
-                    sendTextMessage(sender, "Here are some of our popular themes! You can check out https://lemonstand.com/themes for more!")
-                    sendGenericMessage(sender)
-                    //quickReplies(sender)
-                    continue
-                }
-                if (event.postback.payload === 'Pricing') {
-                    sendTextMessage(sender, "Our plans start at $99/month and include a wide range of features to help excel your online store!")
-                    sendPricingMessage(sender)
-                    //quickReplies(sender)
-                    continue
-                }
-                if (event.postback.payload === 'Why LemonStand?') {
-                    sendTextMessage(sender, "LemonStand is a refreshing approach to e-commerce. LemonStand helps web developers, agencies and fast growing brands create beautiful online stores that stand out from the crowd. We don't charge payment transaction fees, and we provide amazing customer support. You have access to all the code for full control of the UI, and there are many beautiful themes to choose from!")
-                    quickReplies(sender)
-                    continue
-                }
         //quickReplies(sender)
         }
       // if (event.postback) {
