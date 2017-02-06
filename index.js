@@ -63,9 +63,13 @@ app.get('/', function (req, res) {
         sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
         
       }
-    if (event.postback && event.postback.payload === "Professional") {
+    if (event.postback && event.postback.payload) {
+        let text1 = JSON.stringify(event.postback)
+        var obj1 = JSON.parse(text)
+        if (obj1.payload === "Professional") {
+
             sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
-            
+         }   
         }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
