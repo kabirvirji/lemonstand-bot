@@ -91,7 +91,7 @@ app.get('/', function (req, res) {
         
 
 
-        setTimeout(function2, 3000);
+        setTimeout(function2, 1000);
         //quickReplies(sender)
         }
 
