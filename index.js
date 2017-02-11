@@ -67,7 +67,6 @@ app.get('/', function (req, res) {
         //let text1 = JSON.stringify(event.postback)
         //var obj1 = JSON.parse(text)
         //console.log(event.postback.payload)
-        var c = 0;
             if (event.postback.payload === 'Professional') {
             sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
             }   
@@ -80,6 +79,10 @@ app.get('/', function (req, res) {
             if (event.postback.payload === 'Get Started') {
                 sendTextMessage(sender, "Hi, welcome to LemonStand. What can I help you with today?")
                 //quickReplies(sender)
+                var c = 0
+            }
+            if (c === 0) {
+                quickReplies(sender)
             }
             if (event.postback.payload === 'Help') {
                 sendTextMessage(sender, "Please email support@lemonstand.com with any questions.")
