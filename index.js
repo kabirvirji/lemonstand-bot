@@ -87,21 +87,15 @@ app.get('/', function (req, res) {
         //quickReplies(sender)
         }
 
-        function sleep(ms) {
-          return new Promise(resolve => setTimeout(resolve, ms));
-        }
-
-        async function demo() {
-          console.log('Taking a break...');
-          await sleep(2000);
-          console.log('Two second later');
-        }
-
-        demo();
-        
-        if (c === 0) {
+        function function2() {
             quickReplies(sender)
-        }
+            }
+        
+
+
+        setTimeout(function2, 3000);
+
+        
       // if (event.postback) {
       //   let text = JSON.stringify(event.postback)
       //   var obj = JSON.parse(text)
@@ -286,7 +280,6 @@ function sendPricingMessage(sender) {
         }
     })
 }
-
 
 
 
