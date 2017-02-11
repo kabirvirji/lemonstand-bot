@@ -79,7 +79,7 @@ app.get('/', function (req, res) {
             }
             if (event.postback.payload === 'Get Started') {
                 sendTextMessage(sender, "Hi, welcome to LemonStand. What can I help you with today?")
-                quickReplies(sender)
+                //quickReplies(sender)
             }
             if (event.postback.payload === 'Help') {
                 sendTextMessage(sender, "Please email support@lemonstand.com with any questions.")
