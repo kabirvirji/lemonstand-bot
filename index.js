@@ -78,21 +78,14 @@ app.get('/', function (req, res) {
             }
             if (event.postback.payload === 'Get Started') {
                 sendTextMessage(sender, "Hi, welcome to LemonStand. What can I help you with today?")
-                //quickReplies(sender)
-                var c = 0
+                function getStarted() {
+                    quickReplies(sender)
+                }
+                setTimeout(getStarted, 1000);
             }
             if (event.postback.payload === 'Help') {
                 sendTextMessage(sender, "Please email support@lemonstand.com with any questions.")
             }
-
-        function function2() {
-            quickReplies(sender)
-            }
-        
-
-
-        setTimeout(function2, 1000);
-        //quickReplies(sender)
         }
 
 
