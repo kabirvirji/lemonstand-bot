@@ -84,16 +84,18 @@ app.get('/', function (req, res) {
             if (event.postback.payload === 'Help') {
                 sendTextMessage(sender, "Please email support@lemonstand.com with any questions.")
             }
-        //quickReplies(sender)
-        }
 
-        // function function2() {
-        //     quickReplies(sender)
-        //     }
+        function function2() {
+            quickReplies(sender)
+            }
         
 
 
-        // setTimeout(function2, 3000);
+        setTimeout(function2, 3000);
+        //quickReplies(sender)
+        }
+
+
 
         
       // if (event.postback) {
