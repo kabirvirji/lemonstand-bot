@@ -87,13 +87,13 @@ app.get('/', function (req, res) {
         //quickReplies(sender)
         }
 
-        function function2() {
-            quickReplies(sender)
-            }
+        // function function2() {
+        //     quickReplies(sender)
+        //     }
         
 
 
-        setTimeout(function2, 3000);
+        // setTimeout(function2, 3000);
 
         
       // if (event.postback) {
