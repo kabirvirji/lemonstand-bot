@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
   app.post('/webhook/', function (req, res) {
-    var counter = 0;
+    var count = 0;
     let messaging_events = req.body.entry[0].messaging
     for (let i = 0; i < messaging_events.length; i++) {
       let event = req.body.entry[0].messaging[i]
@@ -46,27 +46,12 @@ app.get('/', function (req, res) {
             quickReplies(sender)
             continue
         }
-        // if (text == 'Professional') {
-        //     sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
-        //     continue
-        // }
-        // if (text === 'Growth') {
-        //     sendTextMessage(sender, "The Growth plan starts at $199/month and includes everything the professional plan does, plus the ability to sell subscription products and customer group pricing.")
-        //     continue
-        // }
-        // if (text === 'Premium') {
-        //     sendTextMessage(sender, "We reserve the best for the best. Starting at $399/month we provide the best service an e-commerce platform has to offer. This includes everything the Growth plan does, plus dedicated support and higher API limits. Definitely a go to for any medium to large sized business.")
-        //     continue
-        // }
-
 
         sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
         
       }
     if (event.postback && event.postback.payload) {
-        //let text1 = JSON.stringify(event.postback)
-        //var obj1 = JSON.parse(text)
-        //console.log(event.postback.payload)
+            
             if (event.postback.payload === 'Professional') {
             sendTextMessage(sender, "The Professional plan is meant for serious small businesses. It starts at $99/month and includes all the basic LemonStand features from cross-platform response themes, to sales analytics and much more!")
             }   
@@ -78,6 +63,7 @@ app.get('/', function (req, res) {
             }
             if (event.postback.payload === 'Get Started') {
                 sendTextMessage(sender, "Hi, welcome to LemonStand. What can I help you with today?")
+                // delay function
                 function getStarted() {
                     quickReplies(sender)
                 }
@@ -87,18 +73,6 @@ app.get('/', function (req, res) {
                 sendTextMessage(sender, "Please email support@lemonstand.com with any questions.")
             }
         }
-
-
-
-        
-      // if (event.postback) {
-      //   let text = JSON.stringify(event.postback)
-      //   var obj = JSON.parse(text)
-      //   //sendTextMessage(sender, obj.payload, token)
-      //   // Get started triggers postback
-      //   quickReplies(sender)
-      //   continue
-      // }
     }
     res.sendStatus(200)
   })
@@ -167,7 +141,6 @@ function quickReplies(sender) {
     })
 }
 
-
 function sendGenericMessage(sender) {
     let messageData = {
         "attachment": {
@@ -231,7 +204,6 @@ function sendGenericMessage(sender) {
     })
 }
 
-
 function sendPricingMessage(sender) {
     let messageData = {
   "attachment":{
@@ -275,6 +247,4 @@ function sendPricingMessage(sender) {
         }
     })
 }
-
-
 
