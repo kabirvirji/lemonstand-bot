@@ -81,13 +81,13 @@ app.get('/', function (req, res) {
                 //quickReplies(sender)
                 var c = 0
             }
-            if (c === 0) {
-                quickReplies(sender)
-            }
             if (event.postback.payload === 'Help') {
                 sendTextMessage(sender, "Please email support@lemonstand.com with any questions.")
             }
         //quickReplies(sender)
+        }
+        if (c === 0) {
+            quickReplies(sender)
         }
       // if (event.postback) {
       //   let text = JSON.stringify(event.postback)
